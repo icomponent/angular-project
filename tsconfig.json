@@ -24,6 +24,12 @@
       ],
       "core/*": [
         "dist/core/*"
+      ],
+      "common": [
+        "dist/common"
+      ],
+      "common/*": [
+        "dist/common/*"
       ]
     }
   },
