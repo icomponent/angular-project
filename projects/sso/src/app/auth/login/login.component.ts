@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /**
+   * 用户登录
+   */
   login(): void {
     console.log(this.loginForm.value);
   }
