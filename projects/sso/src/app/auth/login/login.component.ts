@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'sso-login',
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
   /** 登录表单 */
   loginForm: FormGroup;
 
-  constructor(private builder: FormBuilder) { }
+  constructor(private builder: FormBuilder,
+              private authService: AuthService) { }
 
   ngOnInit() {
     /** 构造表单 */
@@ -27,7 +29,9 @@ export class LoginComponent implements OnInit {
    * 用户登录
    */
   login(): void {
-    console.log(this.loginForm.value);
+    const username = this.loginForm.value.username;
+    const password = this.loginForm.value.password;
+    this.authService.login(username, password);
   }
 
 }
