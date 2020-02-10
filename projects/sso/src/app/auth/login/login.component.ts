@@ -29,8 +29,10 @@ export class LoginComponent implements OnInit {
    * 用户登录
    */
   login(): void {
+    /** 获取表单中的输入内容 */
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
+    /** 登录 */
     this.authService.login(username, password);
   }
 

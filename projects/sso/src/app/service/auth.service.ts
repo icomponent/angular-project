@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CommonCredentials } from 'common';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,10 @@ export class AuthService {
    * @param password 密码
    */
   login(username: string, password: string): Observable<void> {
-    console.log(username);
-    console.log(password);
+    /** 构造登录凭证 */
+    const credentials = new CommonCredentials();
+    credentials.username = username;
+    credentials.password = password;
     return null;
   }
 }
