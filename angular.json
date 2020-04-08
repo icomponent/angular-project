@@ -63,7 +63,8 @@
               "projects/sso-app/src/assets"
             ],
             "styles": [
-              "projects/sso-app/src/styles.scss"
+              "projects/sso-app/src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
