@@ -3,33 +3,33 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "core": {
+    "sso-common": {
       "projectType": "library",
-      "root": "projects/core",
-      "sourceRoot": "projects/core/src",
-      "prefix": "icc",
+      "root": "projects/sso-common",
+      "sourceRoot": "projects/sso-common/src",
+      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/core/tsconfig.lib.json",
-            "project": "projects/core/ng-package.json"
+            "tsConfig": "projects/sso-common/tsconfig.lib.json",
+            "project": "projects/sso-common/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/core/src/test.ts",
-            "tsConfig": "projects/core/tsconfig.spec.json",
-            "karmaConfig": "projects/core/karma.conf.js"
+            "main": "projects/sso-common/src/test.ts",
+            "tsConfig": "projects/sso-common/tsconfig.spec.json",
+            "karmaConfig": "projects/sso-common/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/core/tsconfig.lib.json",
-              "projects/core/tsconfig.spec.json"
+              "projects/sso-common/tsconfig.lib.json",
+              "projects/sso-common/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -38,67 +38,32 @@
         }
       }
     },
-    "common": {
-      "projectType": "library",
-      "root": "projects/common",
-      "sourceRoot": "projects/common/src",
-      "prefix": "com",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/common/tsconfig.lib.json",
-            "project": "projects/common/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/common/src/test.ts",
-            "tsConfig": "projects/common/tsconfig.spec.json",
-            "karmaConfig": "projects/common/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/common/tsconfig.lib.json",
-              "projects/common/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "sso": {
+    "sso-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "projects/sso",
-      "sourceRoot": "projects/sso/src",
-      "prefix": "sso",
+      "root": "projects/sso-app",
+      "sourceRoot": "projects/sso-app/src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sso",
-            "index": "projects/sso/src/index.html",
-            "main": "projects/sso/src/main.ts",
-            "polyfills": "projects/sso/src/polyfills.ts",
-            "tsConfig": "projects/sso/tsconfig.app.json",
+            "outputPath": "dist/sso-app",
+            "index": "projects/sso-app/src/index.html",
+            "main": "projects/sso-app/src/main.ts",
+            "polyfills": "projects/sso-app/src/polyfills.ts",
+            "tsConfig": "projects/sso-app/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "projects/sso/src/favicon.ico",
-              "projects/sso/src/assets"
+              "projects/sso-app/src/favicon.ico",
+              "projects/sso-app/src/assets"
             ],
             "styles": [
-              "projects/sso/src/styles.scss"
+              "projects/sso-app/src/styles.scss"
             ],
             "scripts": []
           },
@@ -106,8 +71,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/sso/src/environments/environment.ts",
-                  "with": "projects/sso/src/environments/environment.prod.ts"
+                  "replace": "projects/sso-app/src/environments/environment.ts",
+                  "with": "projects/sso-app/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -137,33 +102,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sso:build"
+            "browserTarget": "sso-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sso:build:production"
+              "browserTarget": "sso-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sso:build"
+            "browserTarget": "sso-app:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/sso/src/test.ts",
-            "polyfills": "projects/sso/src/polyfills.ts",
-            "tsConfig": "projects/sso/tsconfig.spec.json",
-            "karmaConfig": "projects/sso/karma.conf.js",
+            "main": "projects/sso-app/src/test.ts",
+            "polyfills": "projects/sso-app/src/polyfills.ts",
+            "tsConfig": "projects/sso-app/tsconfig.spec.json",
+            "karmaConfig": "projects/sso-app/karma.conf.js",
             "assets": [
-              "projects/sso/src/favicon.ico",
-              "projects/sso/src/assets"
+              "projects/sso-app/src/favicon.ico",
+              "projects/sso-app/src/assets"
             ],
             "styles": [
-              "projects/sso/src/styles.scss"
+              "projects/sso-app/src/styles.scss"
             ],
             "scripts": []
           }
@@ -172,9 +137,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/sso/tsconfig.app.json",
-              "projects/sso/tsconfig.spec.json",
-              "projects/sso/e2e/tsconfig.json"
+              "projects/sso-app/tsconfig.app.json",
+              "projects/sso-app/tsconfig.spec.json",
+              "projects/sso-app/e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -184,16 +149,16 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/sso/e2e/protractor.conf.js",
-            "devServerTarget": "sso:serve"
+            "protractorConfig": "projects/sso-app/e2e/protractor.conf.js",
+            "devServerTarget": "sso-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sso:serve:production"
+              "devServerTarget": "sso-app:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "core"
+  "defaultProject": "sso-common"
 }

@@ -19,17 +19,11 @@
       "dom"
     ],
     "paths": {
-      "core": [
-        "dist/core"
+      "sso-common": [
+        "dist/sso-common"
       ],
-      "core/*": [
-        "dist/core/*"
-      ],
-      "common": [
-        "dist/common"
-      ],
-      "common/*": [
-        "dist/common/*"
+      "sso-common/*": [
+        "dist/sso-common/*"
       ]
     }
   },
